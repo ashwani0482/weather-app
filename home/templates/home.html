@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{%block content%}
+   
+<div class="content_wrapper" id="app">
+	<div v-if="infos.city">
+		<h1>
+			Weather Api Project
+			<div class="date">{{data.date}}</div>
+		</h1>
+
+		<form class="btn" method="'get">
+			<input class="form-control" name="city">
+			<button class="btn" type="submit">Go</button>
+		</form>
+
+		<div class="weather_card">
+			<div class="weather_card_img" :style="{backgroundImage: http:{{data.icon}}">
+				<div class="weather_card_state">
+					<span class="material-icons">
+						<img src="http:{{data.icon}}">
+						
+					</span>
+				</div>
+			</div>
+
+			<div class="weather_card_infos">
+				<div class="weather_card_infos_title">
+					{{data.city}}<br>
+					{{data.weather}}
+				</div>
+				<div class="weather_card_infos_temp">
+					{{data.temprature_c}}°C / {{data.temprature_f}}°F
+				</div>
+				<div class="bottom">
+					<hr>
+					<div class="weather_card_infos_bottom">
+						humidity: {{data.humidity}} - pressure: {{data.pressure_mb}}mb
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+{%endblock %}
+
